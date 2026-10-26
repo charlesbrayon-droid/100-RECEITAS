@@ -13,3 +13,15 @@
 O servidor de teste usa somente os arquivos gerados; o site publicado não depende de Python ou de recursos do ambiente local. O `netlify.toml` mantém comando `npm run build`, diretório `dist` e Node.js 24. Cabeçalhos/roteamento efetivos da Netlify, pagamento, entrega automática e Meta Pixel não foram validados por deploy ou integração real. Nenhum rastreamento foi ativado e nenhuma publicação foi realizada.
 
 Faltam capa e prévias reais, dados comerciais, domínio final e revisão legal para abertura de vendas. Esses itens não impedem a publicação técnica do pré-lançamento. As descrições do produto seguem o conteúdo informado pelo usuário; os PDFs não estavam disponíveis para auditoria.
+
+## Atualização de preço e checkout
+
+- Preço oficial informado pelo usuário configurado: R$ 19,90. Checkout central: `https://pay.hotmart.com/Q108196211Y`.
+- Texto dos dois botões: “QUERO MINHAS 100 RECEITAS”. Permanecem desabilitados com mensagem explícita de lançamento em breve.
+- `salesEnabled`, `commercialApproved` e `legalApproved` permanecem falsos. Suporte, responsável, entrega e reembolso não foram inventados.
+- Consulta ao checkout: bloqueada pelo proxy, CONNECT 403. Não estabelece disponibilidade nem indisponibilidade do produto na Hotmart e não confirma preço ou condições.
+- Capa e prévias anexadas não estavam acessíveis nesta tarefa. Nenhuma imagem foi inventada ou substituída.
+- `npm run check` e `npm run build` passaram após a alteração. Nenhum pagamento, entrega, evento de rastreamento ou deploy Netlify foi testado.
+- Build atualizado servido localmente e retestado em Chromium a 360, 390, 768 e 1440 px: preço presente duas vezes, dois botões desabilitados com o rótulo correto, sem overflow ou erros de console observados; FAQ, teclado e páginas legais passaram.
+- Testes de interface com fixtures confirmaram que os dois CTAs recebem o mesmo checkout somente com os requisitos completos; ausência de entrega, suporte, reembolso, responsável ou aprovações mantém os botões desabilitados. Nenhuma navegação externa nem pagamento foi efetuado nesses testes.
+- Capturas desta atualização em `/workspace/scratch/alquimia-oferta/`.

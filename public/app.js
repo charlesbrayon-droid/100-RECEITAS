@@ -5,14 +5,25 @@ $('#year') && ($('#year').textContent = new Date().getFullYear());
 if (config.supportEmail) { const a = document.createElement('a'); a.href = `mailto:${config.supportEmail}`; a.textContent = config.supportEmail; $('#support')?.replaceChildren(a); }
 if (config.deliveryDescription && $('#delivery')) $('#delivery').textContent = config.deliveryDescription;
 if (config.canonicalUrl) { const url = new URL(config.canonicalUrl); if(url.protocol !== 'https:') throw new Error('O domínio canônico deve usar HTTPS.'); const link = document.createElement('link'); link.rel='canonical'; link.href=new URL(location.pathname,url).href; document.head.append(link); }
-if (canSell(config) && $('#purchase')) {
- const url = new URL(config.checkoutUrl);
- if(url.protocol !== 'https:' || !['pay.hotmart.com','hotmart.com','www.hotmart.com'].includes(url.hostname)) throw new Error('Confirme um checkout HTTPS oficial da Hotmart.');
- const price=document.createElement('p');price.className='price';price.textContent=config.price;
- const a=document.createElement('a');a.className='button';a.href=url.href;a.textContent='Comprar na Hotmart';a.dataset.checkout='true';
- const refund=document.createElement('p');refund.className='fine';refund.textContent=config.refundDescription;
- $('#purchase').replaceChildren(price,a,refund);
- document.querySelectorAll('a[href="#oferta"]').forEach(link=>{link.href=url.href;link.textContent='Comprar na Hotmart';link.dataset.checkout='true';});
+document.querySelectorAll('[data-offer-price]').forEach(el => { el.textContent = config.price || ''; });
+const salesReady = canSell(config);
+document.querySelectorAll('[data-purchase-control]').forEach(control => {
+ control.textContent = config.purchaseLabel || 'QUERO MINHAS 100 RECEITAS';
+ if (!salesReady) return;
+ const link = document.createElement('a');
+ link.className = control.className;
+ link.href = config.checkoutUrl;
+ link.textContent = control.textContent;
+ link.dataset.checkout = 'true';
+ control.replaceWith(link);
+});
+if (salesReady) {
+ const heroStatus = $('#hero-status');
+ if (heroStatus) heroStatus.textContent = 'Compra no checkout da Hotmart.';
+ const status = $('#purchase-status');
+ if (status) { status.className = 'fine'; status.textContent = config.refundDescription; }
+ const label = $('.launch-label');
+ if (label) label.hidden = true;
 }
 if(config.cover && $('#cover-slot')){const img=document.createElement('img');img.src=config.cover;img.alt='Capa do eBook 100 Marmitas Econômicas e Práticas, da Alquimia do Sabor';img.className='real-cover';img.width=360;img.height=510;$('#cover-slot').replaceWith(img);}
 const dialog=$('#lightbox');let trigger;

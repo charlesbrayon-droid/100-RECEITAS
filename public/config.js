@@ -1,8 +1,9 @@
 export const config = {
   salesEnabled: false, // Pré-lançamento publicável; habilitar somente após confirmação comercial.
   commercialApproved: false,
-  checkoutUrl: '',
-  price: '',
+  checkoutUrl: 'https://pay.hotmart.com/Q108196211Y',
+  price: 'R$ 19,90',
+  purchaseLabel: 'QUERO MINHAS 100 RECEITAS',
   supportEmail: '',
   responsible: '',
   deliveryDescription: '',

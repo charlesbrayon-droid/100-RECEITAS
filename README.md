@@ -69,4 +69,10 @@ Inativo, sem cookies de marketing, eventos ou scripts externos. O campo `metaPix
 
 ## Pendências sem bloquear o pré-lançamento
 
-Capa e prévias reais; dados comerciais acima; domínio final; revisão legal para a fase de vendas. O produto e os seis módulos seguem as informações fornecidas pelo usuário; não houve auditoria dos PDFs. Pagamento, checkout, entrega automática e rastreamento não foram testados. Consulte `VALIDACAO.md`.
+Capa e prévias reais; suporte, responsável, entrega/acesso, garantia/reembolso, domínio final e revisão legal para vendas. Preço de R$ 19,90 e checkout https://pay.hotmart.com/Q108196211Y foram configurados conforme informação do usuário; a correspondência de produto/preço na Hotmart ainda não foi verificada. O produto e os seis módulos seguem as informações fornecidas pelo usuário; não houve auditoria dos PDFs. Pagamento, checkout, entrega automática e rastreamento não foram testados. Consulte `VALIDACAO.md`.
+
+## Atualização da oferta
+
+Preço inicial informado pela marca: R$ 19,90. Texto central dos botões: `purchaseLabel`, com “QUERO MINHAS 100 RECEITAS”. O preço é exibido na apresentação e na oferta, inclusive no pré-lançamento. Os dois botões ficam desabilitados até os requisitos de `sales.js` serem confirmados; quando ativados, ambos recebem exclusivamente `config.checkoutUrl`.
+
+A tentativa de consulta a `pay.hotmart.com` foi bloqueada pelo proxy do ambiente com CONNECT 403, antes de alcançar o checkout. Não foi possível confirmar produto, preço, entrega, suporte ou reembolso no checkout. O domínio necessário foi acrescentado ao rascunho de rede do ambiente, mas salvar o rascunho não aplica a mudança ao runtime. As imagens mencionadas como anexadas não estavam disponíveis ao agente; a apresentação editorial existente foi preservada. Nenhum arquivo pago foi publicado.

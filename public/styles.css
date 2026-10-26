@@ -5,3 +5,5 @@
 .arrow{display:inline-block;width:8px;height:8px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg);margin:0 3px}
 
 .launch-label{display:inline-block;color:var(--gold);font-size:11px;letter-spacing:.18em;margin:18px 0 10px;padding:7px 14px;border:1px solid #62674a;border-radius:30px}
+
+.hero-price{font:40px/1.2 Georgia,serif;color:var(--gold);margin:25px 0 4px}.purchase-control{font:650 15px/1.5 system-ui,sans-serif;letter-spacing:.035em;max-width:100%;white-space:normal}.purchase-control:disabled{opacity:1;cursor:not-allowed;background:#b49b69;border-color:#b49b69;color:#10120f}.purchase-control:disabled:hover{background:#b49b69}#hero-status{margin-top:13px}nav .nav-cta{white-space:nowrap}
