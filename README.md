@@ -100,3 +100,21 @@ A galeria oferece contador, anterior/próxima, setas do teclado, ampliação de 
 O proprietário aprovou a capa e as seis páginas escolhidas e confirmou produto, preço de R$ 19,90, checkout oficial e garantia de reembolso de 7 dias configurada na Hotmart. A garantia está na oferta, no FAQ e nos termos, sem inventar um procedimento de solicitação ou outras condições.
 
 Continuam faltando: e-mail de suporte, identificação pública do responsável, confirmação de como ocorre a entrega/acesso e por quanto tempo o conteúdo fica disponível. Com essas informações, atualizar os textos legais para a operação real e confirmar as aprovações comercial/legal antes de habilitar `salesEnabled`. A falta dos outros módulos não impede o uso das seis páginas já aprovadas; a análise do eBook inteiro continua não realizada. Domínio próprio e rastreamento são opcionais.
+
+## Atualização local: somente entrega e acesso
+
+O fluxo previsto está descrito em `deliveryDescription`, reproduzido na oferta e no FAQ: produto 100% digital em PDF, sem envio físico; com a modalidade devidamente configurada, a Hotmart disponibiliza o acesso após confirmar o pagamento e envia as instruções ao comprador. Não há promessa de prazo de disponibilidade, acesso vitalício ou envio imediato.
+
+A descrição do fluxo não comprova a configuração real. Antes da ativação comercial, o proprietário deve confirmar que o produto está configurado para entrega digital, que os PDFs corretos estão carregados e disponíveis ao comprador e que o acesso/instruções após o pagamento funcionam. Não foram acessados o painel de produtor nem uma compra real nesta revisão. O prazo de disponibilidade só poderá ser anunciado após confirmação. Suporte e identificação continuam em branco, e as aprovações comercial/legal e `salesEnabled` permanecem falsas.
+
+Esta revisão foi feita localmente, sem commit, push ou publicação, conforme solicitação do usuário.
+
+## Consolidação para implantação
+
+Endereço oficial informado: https://alquimia-do-sabor-receitas.netlify.app/. A URL canônica e os metadados correspondentes são gerados no build para a raiz e para as páginas legais. `dist/release.json` identifica o commit gerado e o estado de vendas, sem credenciais; o cabeçalho desse arquivo impede cache para facilitar a conferência após o deploy.
+
+As melhorias estão autorizadas para commit e envio à `main`, sem `--force`. As vendas permanecem desabilitadas: suporte, responsável, confirmação da entrega completa e aprovação dos textos legais/comerciais ainda são necessários. `deliveryConfirmed` exige confirmação explícita do fluxo real na Hotmart; inserir uma descrição não supre essa confirmação.
+
+Pendência manual única para liberar vendas: validar a operação comercial completa na Hotmart (todos os PDFs destinados ao comprador disponíveis e acesso/instruções após pagamento funcionando), fornecer o e-mail de suporte e a identificação pública do responsável e conferir os textos legais com esses dados. Não há promessa de acesso vitalício ou prazo não confirmado. Essa validação não foi executada pelo agente.
+
+O acesso ao endereço público foi bloqueado pelo proxy do ambiente com CONNECT 403. Não há integração/credencial Netlify disponível. Um push bem-sucedido não comprova o status Published; este status e a versão efetivamente servida precisam de evidência da plataforma. A autorização de domínio foi salva no rascunho de rede, sem afirmar aplicação ao runtime ou publicação desse ambiente.

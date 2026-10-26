@@ -6,9 +6,10 @@ export const config = {
   purchaseLabel: 'QUERO MINHAS 100 RECEITAS',
   supportEmail: '',
   responsible: '',
-  deliveryDescription: '',
+  deliveryConfirmed: false, // Só marcar após conferir o produto completo e o acesso na Hotmart.
+  deliveryDescription: 'Produto 100% digital, em formato PDF. Não há envio de produto físico. Com a entrega digital devidamente configurada na Hotmart, o acesso será disponibilizado pela plataforma após a confirmação do pagamento. O comprador deverá seguir as instruções enviadas pela Hotmart para acessar o material.', // Fluxo previsto; a configuração efetiva na Hotmart ainda precisa ser confirmada.
   refundDescription: 'Garantia de reembolso de 7 dias, conforme as condições apresentadas no checkout da Hotmart.', // Configuração confirmada pelo proprietário.
-  canonicalUrl: '',
+  canonicalUrl: 'https://alquimia-do-sabor-receitas.netlify.app/',
   cover: '/assets/ebook/capa-oficial.webp', // Extraída da primeira página do Modulo_01.pdf, sem recortes.
   // Capa e seis prévias aprovadas pelo proprietário. Fontes: módulos 01, 02 e 05.
   previews: [

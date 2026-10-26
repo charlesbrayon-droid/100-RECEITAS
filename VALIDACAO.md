@@ -43,3 +43,23 @@ O proprietário aprovou oficialmente a capa e as seis páginas e confirmou a gar
 Build e verificações passaram. Chromium a 360, 390, 768 e 1440 px confirmou a garantia na oferta/FAQ/termos, ausência de overflow, seis prévias preservadas, botões desabilitados e nenhum erro de console observado. Todos os arquivos anteriormente versionados continuam presentes; nenhum PDF foi incluído na pasta pública.
 
 Continuam pendentes e-mail de suporte, identificação pública do responsável, forma de entrega e condições/prazo de acesso. Os textos legais precisam refletir esses dados antes da aprovação comercial/legal e da ativação de vendas. Domínio próprio não é requisito para utilizar o endereço HTTPS da Netlify.
+
+## Entrega e acesso — alteração somente local
+
+Oferta, FAQ e termos agora descrevem produto 100% digital em PDF, sem envio físico, com acesso pela Hotmart após confirmação do pagamento e conforme instruções enviadas pela plataforma, condicionado à configuração efetiva dessa modalidade. Nenhum prazo de disponibilidade foi anunciado. Isso descreve o fluxo pretendido e não comprova a configuração no painel da Hotmart.
+
+`npm run check`, `npm run build`, verificação sintática e `git diff --check` passaram. Chromium a 360, 390, 768 e 1440 px confirmou o texto na oferta e no FAQ, termos acessíveis, ausência de overflow, preço/garantia e seis prévias preservados, vendas desabilitadas e nenhum erro de console observado. Não foi feita transação nem acessado o painel de produtor.
+
+Suporte e responsável continuam pendentes, sem dados fictícios. Aprovações comercial/legal continuam falsas. Nenhum commit, push ou deploy realizado nesta revisão, conforme instrução expressa do usuário.
+
+## Revisão técnica final autorizada
+
+- `npm run check` e `npm run build` passaram. Verificações sintáticas e `git diff --check` passaram.
+- Chromium no build de produção em 360, 390, 768 e 1440 px: capa e seis prévias preservadas, imagens carregando, versões grandes somente sob demanda, navegação da galeria, zoom, Escape, foco e teclado funcionaram; sem overflow horizontal ou erros de console observados. Páginas legais acessíveis.
+- Teste local com configurações fictícias exclusivamente em memória confirmou que os dois CTAs usam o checkout oficial quando todos os requisitos estão completos; requisitos ausentes mantêm a compra desabilitada. Nenhuma transação ou entrega real foi simulada como validada.
+- Domínio canônico oficial configurado; build insere canonical estático e og:url. Navegador confirmou canonical único na página inicial.
+- Trava `deliveryConfirmed` acrescentada e testada. `salesEnabled`, `commercialApproved`, `legalApproved` e `deliveryConfirmed` permanecem falsos. Suporte e responsável não foram inventados.
+- Todos os arquivos anteriormente versionados preservados. Não há PDFs/editáveis ou padrões conhecidos de credenciais em `public/` ou `dist/`. Meta Pixel continua inativo.
+- Configuração Netlify validada estruturalmente: `npm run build`, publicação `dist`, Node.js 24, CSP e demais cabeçalhos mantidos. Cabeçalhos efetivos e resposta 404 da Netlify dependem de consulta ao site público.
+- Tentativa de consulta HTTPS ao site público bloqueada pelo proxy, CONNECT 403, antes de obter uma resposta da Netlify. Sem acesso ao painel/API autenticada, o status Published não foi confirmado. Autorização de rede para o domínio foi salva apenas em rascunho.
+- `release.json` será gerado por build com o commit e estado de vendas para conferência futura, sem segredos.

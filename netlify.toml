@@ -11,3 +11,8 @@
     X-Frame-Options = "DENY"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'"
+
+[[headers]]
+  for = "/release.json"
+  [headers.values]
+    Cache-Control = "no-store"

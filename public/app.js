@@ -3,8 +3,8 @@ import { canSell } from './sales.js';
 const $ = (s) => document.querySelector(s);
 $('#year') && ($('#year').textContent = new Date().getFullYear());
 if (config.supportEmail) { const a = document.createElement('a'); a.href = `mailto:${config.supportEmail}`; a.textContent = config.supportEmail; $('#support')?.replaceChildren(a); }
-if (config.deliveryDescription && $('#delivery')) $('#delivery').textContent = config.deliveryDescription;
-if (config.canonicalUrl) { const url = new URL(config.canonicalUrl); if(url.protocol !== 'https:') throw new Error('O domínio canônico deve usar HTTPS.'); const link = document.createElement('link'); link.rel='canonical'; link.href=new URL(location.pathname,url).href; document.head.append(link); }
+if (config.deliveryDescription) document.querySelectorAll('[data-delivery-description]').forEach(el => { el.textContent = config.deliveryDescription; });
+if (config.canonicalUrl) { const url = new URL(config.canonicalUrl); if(url.protocol !== 'https:') throw new Error('O domínio canônico deve usar HTTPS.'); const link = document.querySelector('link[rel="canonical"]') || document.createElement('link'); link.rel='canonical'; link.href=new URL(location.pathname,url).href; if(!link.isConnected) document.head.append(link); }
 document.querySelectorAll('[data-offer-price]').forEach(el => { el.textContent = config.price || ''; });
 document.querySelectorAll('[data-refund-description]').forEach(el => { el.textContent = config.refundDescription || ''; el.hidden = !config.refundDescription; });
 const salesReady = canSell(config);
