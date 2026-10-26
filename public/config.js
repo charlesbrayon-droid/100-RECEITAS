@@ -4,10 +4,12 @@ export const config = {
   checkoutUrl: 'https://pay.hotmart.com/Q108196211Y',
   price: 'R$ 19,90',
   purchaseLabel: 'QUERO MINHAS 100 RECEITAS',
-  supportEmail: '',
-  responsible: '',
-  deliveryConfirmed: false, // Só marcar após conferir o produto completo e o acesso na Hotmart.
-  deliveryDescription: 'Produto 100% digital, em formato PDF. Não há envio de produto físico. Com a entrega digital devidamente configurada na Hotmart, o acesso será disponibilizado pela plataforma após a confirmação do pagamento. O comprador deverá seguir as instruções enviadas pela Hotmart para acessar o material.', // Fluxo previsto; a configuração efetiva na Hotmart ainda precisa ser confirmada.
+  supportEmail: 'charles.brayon@icloud.com',
+  responsible: '69.295.622 CHARLES BRAYON AUGUSTO SCHOENROCK',
+  cnpj: '69.295.622/0001-90',
+  businessAddress: '', // Endereço físico comercial ainda não fornecido; requisito para ativação.
+  deliveryConfirmed: true, // Proprietário confirmou cadastro do PDF completo para entrega; sem teste de compra pelo agente.
+  deliveryDescription: 'Produto 100% digital, em formato PDF. Não há envio de produto físico. O acesso é disponibilizado pela Hotmart após a confirmação do pagamento. O comprador deverá seguir as instruções enviadas pela Hotmart para acessar o material.', // Fluxo confirmado pelo proprietário; prazo de acesso não anunciado.
   refundDescription: 'Garantia de reembolso de 7 dias, conforme as condições apresentadas no checkout da Hotmart.', // Configuração confirmada pelo proprietário.
   canonicalUrl: 'https://alquimia-do-sabor-receitas.netlify.app/',
   cover: '/assets/ebook/capa-oficial.webp', // Extraída da primeira página do Modulo_01.pdf, sem recortes.

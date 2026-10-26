@@ -63,3 +63,12 @@ Suporte e responsável continuam pendentes, sem dados fictícios. Aprovações c
 - Configuração Netlify validada estruturalmente: `npm run build`, publicação `dist`, Node.js 24, CSP e demais cabeçalhos mantidos. Cabeçalhos efetivos e resposta 404 da Netlify dependem de consulta ao site público.
 - Tentativa de consulta HTTPS ao site público bloqueada pelo proxy, CONNECT 403, antes de obter uma resposta da Netlify. Sem acesso ao painel/API autenticada, o status Published não foi confirmado. Autorização de rede para o domínio foi salva apenas em rascunho.
 - `release.json` será gerado por build com o commit e estado de vendas para conferência futura, sem segredos.
+
+## Dados oficiais do fornecedor recebidos
+
+- Inseridos razão social, CNPJ e e-mail de suporte fornecidos pelo proprietário, no rodapé, nos termos e na política de privacidade. Nenhum endereço ou contato fictício foi usado.
+- Dígitos verificadores do CNPJ numericamente válidos; não foi realizada consulta cadastral oficial.
+- Entrega cadastrada na Hotmart confirmada pelo proprietário. `deliveryConfirmed: true` reflete essa confirmação, sem declarar teste de transação ou acesso real.
+- Requisito essencial restante: endereço físico comercial do fornecedor (Decreto 7.962/2013, art. 2º, II). `businessAddress` foi incluído na trava. Vendas e aprovações comercial/legal permanecem falsas até a conclusão desses dados e textos.
+- `npm run check`, `npm run build` e `git diff --check` passaram. Testes Chromium em 360, 390, 768 e 1440 px passaram: identificação/CNPJ/suporte visíveis, links de e-mail corretos, páginas legais funcionando, seis prévias e ampliação/teclado preservados, sem overflow ou erros de console observados. Teste em memória confirmou CTA oficial com requisitos completos e bloqueio quando faltam CNPJ/endereço ou outros requisitos. Nenhuma compra real foi feita.
+- Capa, seis páginas, miniaturas e favicon comparados por hash com HEAD: idênticos. Nenhum PDF completo em public/ ou dist/.

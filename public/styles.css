@@ -16,3 +16,5 @@
 .refund-note{font-size:15px;line-height:1.7;color:var(--green);max-width:620px;margin:24px auto 0}
 
 .delivery-info{max-width:680px;margin:28px auto 0;padding-top:24px;border-top:1px solid var(--line)}.delivery-info h3{font-size:18px;margin-bottom:12px}.delivery-info p{font-size:15px;line-height:1.8;margin-bottom:0}
+
+footer>div{min-width:0}footer p,footer a{overflow-wrap:anywhere}footer [data-responsible]{max-width:60ch}

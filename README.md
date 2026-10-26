@@ -118,3 +118,13 @@ As melhorias estão autorizadas para commit e envio à `main`, sem `--force`. As
 Pendência manual única para liberar vendas: validar a operação comercial completa na Hotmart (todos os PDFs destinados ao comprador disponíveis e acesso/instruções após pagamento funcionando), fornecer o e-mail de suporte e a identificação pública do responsável e conferir os textos legais com esses dados. Não há promessa de acesso vitalício ou prazo não confirmado. Essa validação não foi executada pelo agente.
 
 O acesso ao endereço público foi bloqueado pelo proxy do ambiente com CONNECT 403. Não há integração/credencial Netlify disponível. Um push bem-sucedido não comprova o status Published; este status e a versão efetivamente servida precisam de evidência da plataforma. A autorização de domínio foi salva no rascunho de rede, sem afirmar aplicação ao runtime ou publicação desse ambiente.
+
+## Identificação do fornecedor e entrega confirmadas pelo proprietário
+
+Dados oficiais fornecidos pelo proprietário: razão social `69.295.622 CHARLES BRAYON AUGUSTO SCHOENROCK`, CNPJ `69.295.622/0001-90` e suporte `charles.brayon@icloud.com`. Constam no rodapé, nos termos e na política de privacidade. A validação matemática dos dígitos do CNPJ passou; isso não equivale a consulta cadastral à Receita Federal.
+
+O proprietário confirmou produto com vendas ativas na Hotmart e PDF completo cadastrado para entrega digital. `deliveryConfirmed` foi marcado como verdadeiro com base nessa declaração; nenhum teste de pagamento ou entrega foi realizado pelo agente. A descrição de entrega não promete prazo de disponibilidade não confirmado.
+
+Impedimento específico identificado na revisão: falta o endereço físico comercial do fornecedor, solicitado pelo art. 2º, II, do Decreto 7.962/2013 para ofertas por meio eletrônico. Referência: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm. Não foi inventado endereço nem removido esse requisito para liberar a compra. `businessAddress` permanece vazio e integra a trava de ativação, junto à identificação e às aprovações comercial/legal. Ao receber o endereço verdadeiro, incluí-lo também nos textos legais e no rodapé, concluir a revisão e só então ativar as vendas.
+
+Todos os demais dados aprovados, imagens e checkout foram preservados. A revisão atual está autorizada para commit e envio à `main`, sem `--force`, mesmo com vendas desabilitadas pelo dado faltante. A confirmação de publicação na Netlify depende de acesso ao endereço público ou à plataforma.

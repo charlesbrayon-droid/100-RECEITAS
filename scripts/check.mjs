@@ -11,9 +11,9 @@ assert(html.includes('lang="pt-BR"'));assert(html.includes('id="lightbox"'));con
 const { canSell, salesRequirements } = await import('../public/sales.js');
 const { config } = await import('../public/config.js');
 assert.equal(canSell({...config, salesEnabled: false}), false, 'O pré-lançamento não habilita vendas');
-const fixture = { salesEnabled: true, commercialApproved: true, legalApproved: true, deliveryConfirmed: true, checkoutUrl: 'https://pay.hotmart.com/TESTE-NAO-REAL', price: 'valor de teste', supportEmail: 'teste@example.com', responsible: 'Fixture', deliveryDescription: 'Fixture', refundDescription: 'Fixture' };
+const fixture = { salesEnabled: true, commercialApproved: true, legalApproved: true, deliveryConfirmed: true, checkoutUrl: 'https://pay.hotmart.com/TESTE-NAO-REAL', price: 'valor de teste', supportEmail: 'teste@example.com', responsible: 'Fixture', cnpj: 'Fixture não comercial', businessAddress: 'Endereço apenas de teste', deliveryDescription: 'Fixture', refundDescription: 'Fixture' };
 assert.equal(canSell(fixture), true);
-for (const key of ['checkoutUrl','price','supportEmail','responsible','deliveryDescription','refundDescription','deliveryConfirmed','legalApproved','commercialApproved','salesEnabled']) assert.equal(canSell({...fixture,[key]: ''}), false, 'Campo obrigatório: '+key);
+for (const key of ['checkoutUrl','price','supportEmail','responsible','cnpj','businessAddress','deliveryDescription','refundDescription','deliveryConfirmed','legalApproved','commercialApproved','salesEnabled']) assert.equal(canSell({...fixture,[key]: ''}), false, 'Campo obrigatório: '+key);
 for (const checkoutUrl of ['javascript:alert(1)', 'https://pay.hotmart.com.evil.example/checkout', 'http://pay.hotmart.com/checkout', 'https://pay.hotmart.com/', 'https://user:password@pay.hotmart.com/checkout']) assert.equal(canSell({...fixture, checkoutUrl}), false);
 assert(salesRequirements({}).length > 0);
 console.log('Trava de vendas passou: pré-lançamento, requisitos ausentes e checkouts inválidos.');

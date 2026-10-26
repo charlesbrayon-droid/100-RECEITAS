@@ -1,6 +1,6 @@
 // Mesma regra no navegador e no build: publicar o pré-lançamento não habilita vendas.
 export function salesRequirements(config) {
-  const missing = ['checkoutUrl', 'price', 'supportEmail', 'responsible', 'deliveryDescription', 'refundDescription'].filter(key => typeof config[key] !== 'string' || !config[key].trim());
+  const missing = ['checkoutUrl', 'price', 'supportEmail', 'responsible', 'cnpj', 'businessAddress', 'deliveryDescription', 'refundDescription'].filter(key => typeof config[key] !== 'string' || !config[key].trim());
   if (config.deliveryConfirmed !== true) missing.push('deliveryConfirmed');
   if (config.legalApproved !== true) missing.push('legalApproved');
   if (config.commercialApproved !== true) missing.push('commercialApproved');
