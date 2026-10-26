@@ -19,4 +19,4 @@ As 55 páginas de apresentação disponíveis foram comparadas visualmente em co
 
 Somente sete páginas distintas foram convertidas para uso no site: capa + seis apresentações. As seis miniaturas têm 480 × 800 px; as versões de ampliação têm 1440 × 2400 px. Não foram publicados PDFs ou páginas adicionais. Arquivos maiores carregam sob demanda. Conversão para WebP preserva o conteúdo e a proporção, com compressão para a web.
 
-Publicação comercial permanece condicionada às informações de entrega, suporte e responsável e à revisão das páginas legais.
+Dados do fornecedor, endereço e entrega cadastrada foram confirmados pelo proprietário; as seis prévias e a capa continuam aprovadas. Não foi realizado teste real de compra ou entrega pelo agente.

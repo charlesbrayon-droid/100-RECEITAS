@@ -1,13 +1,13 @@
 export const config = {
-  salesEnabled: false, // Pré-lançamento publicável; habilitar somente após confirmação comercial.
-  commercialApproved: false,
+  salesEnabled: true, // Ativação autorizada após confirmação dos dados pelo proprietário.
+  commercialApproved: true,
   checkoutUrl: 'https://pay.hotmart.com/Q108196211Y',
   price: 'R$ 19,90',
   purchaseLabel: 'QUERO MINHAS 100 RECEITAS',
   supportEmail: 'charles.brayon@icloud.com',
   responsible: '69.295.622 CHARLES BRAYON AUGUSTO SCHOENROCK',
   cnpj: '69.295.622/0001-90',
-  businessAddress: '', // Endereço físico comercial ainda não fornecido; requisito para ativação.
+  businessAddress: 'Avenida Frederico Grulke, 1220, Santa Maria de Jetibá – ES, CEP 29645-012', // Endereço cadastral fornecido pelo proprietário; sem atendimento presencial.
   deliveryConfirmed: true, // Proprietário confirmou cadastro do PDF completo para entrega; sem teste de compra pelo agente.
   deliveryDescription: 'Produto 100% digital, em formato PDF. Não há envio de produto físico. O acesso é disponibilizado pela Hotmart após a confirmação do pagamento. O comprador deverá seguir as instruções enviadas pela Hotmart para acessar o material.', // Fluxo confirmado pelo proprietário; prazo de acesso não anunciado.
   refundDescription: 'Garantia de reembolso de 7 dias, conforme as condições apresentadas no checkout da Hotmart.', // Configuração confirmada pelo proprietário.
@@ -88,6 +88,6 @@ export const config = {
         "height": 800
     }
 ],
-  legalApproved: false,
+  legalApproved: true,
   metaPixel: { id: '', consentPolicyApproved: false } // Inativo: ativação requer implementação e validação do consentimento.
 };

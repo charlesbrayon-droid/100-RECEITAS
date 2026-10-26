@@ -1,6 +1,6 @@
 # Alquimia do Sabor — 100 Receitas
 
-Página estática premium, em português brasileiro, sem dependências de produção. O pré-lançamento pode ser publicado agora, sem checkout, preço, capa ou prévias. **Nenhuma venda é habilitada por padrão.**
+Página estática premium, em português brasileiro, sem dependências de produção. A versão comercial está habilitada após confirmação dos dados pelo proprietário. Os botões usam exclusivamente o checkout oficial configurado em `public/config.js`. O PDF pago não está no site nem no repositório.
 
 ## Desenvolvimento e build
 
@@ -12,7 +12,7 @@ npm run build
 npm run dev
 ```
 
-- `npm run build`: gera `dist/` publicável em pré-lançamento.
+- `npm run build`: gera `dist/` conforme o estado comercial validado da configuração.
 - `npm run build:preview`: gera uma prévia com `robots.txt` bloqueando indexação; não usar em produção.
 - `npm run dev`: serve `public/` na porta 8080.
 - Para revisar exatamente o build: `python3 -m http.server 8081 --directory dist`.
@@ -128,3 +128,11 @@ O proprietário confirmou produto com vendas ativas na Hotmart e PDF completo ca
 Impedimento específico identificado na revisão: falta o endereço físico comercial do fornecedor, solicitado pelo art. 2º, II, do Decreto 7.962/2013 para ofertas por meio eletrônico. Referência: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm. Não foi inventado endereço nem removido esse requisito para liberar a compra. `businessAddress` permanece vazio e integra a trava de ativação, junto à identificação e às aprovações comercial/legal. Ao receber o endereço verdadeiro, incluí-lo também nos textos legais e no rodapé, concluir a revisão e só então ativar as vendas.
 
 Todos os demais dados aprovados, imagens e checkout foram preservados. A revisão atual está autorizada para commit e envio à `main`, sem `--force`, mesmo com vendas desabilitadas pelo dado faltante. A confirmação de publicação na Netlify depende de acesso ao endereço público ou à plataforma.
+
+## Ativação comercial com endereço completo
+
+Endereço cadastral confirmado pelo proprietário: Avenida Frederico Grulke, 1220, Santa Maria de Jetibá – ES, CEP 29645-012. Foi inserido no rodapé, nos termos e na política de privacidade, sempre com indicação de negócio exclusivamente digital, sem loja física ou atendimento presencial. Não foram inventados bairro ou complemento.
+
+Com razão social, CNPJ, e-mail de suporte, endereço, preço, garantia, checkout e entrega cadastrada confirmados pelo proprietário, a revisão dos textos foi concluída e as flags `salesEnabled`, `commercialApproved`, `legalApproved` e `deliveryConfirmed` estão verdadeiras. Essas flags refletem as confirmações do proprietário e a revisão da implementação; não representam certificação jurídica independente nem teste de compra/entrega pelo agente.
+
+O build comercial gera os links de compra, preço e capa oficial também no HTML estático, sem depender de JavaScript, e remove as mensagens de pré-lançamento. A galeria continua usando JavaScript para interação. O modo de pré-lançamento e as travas continuam disponíveis caso a configuração seja desativada ou fique incompleta.

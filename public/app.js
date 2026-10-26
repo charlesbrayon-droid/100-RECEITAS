@@ -11,6 +11,7 @@ const salesReady = canSell(config);
 document.querySelectorAll('[data-purchase-control]').forEach(control => {
  control.textContent = config.purchaseLabel || 'QUERO MINHAS 100 RECEITAS';
  if (!salesReady) return;
+ if (control instanceof HTMLAnchorElement) { control.href = config.checkoutUrl; control.dataset.checkout = 'true'; return; }
  const link = document.createElement('a');
  link.className = control.className;
  link.href = config.checkoutUrl;
@@ -24,7 +25,7 @@ if (salesReady) {
  const status = $('#purchase-status');
  if (status) { status.className = 'fine'; status.textContent = 'Compra no checkout da Hotmart.'; }
  const label = $('.launch-label');
- if (label) label.hidden = true;
+ if (label) label.remove();
 }
 if (config.cover && $('#cover-slot')) {
  const frame = document.createElement('div');
@@ -114,4 +115,4 @@ if (config.previews.length && $('#preview-grid')) {
 // PageView/clique de saída sem duplicação. Purchase depende da Hotmart.
 document.querySelectorAll('[data-responsible]').forEach(el => { el.textContent = config.responsible || ''; });
 document.querySelectorAll('[data-cnpj]').forEach(el => { el.textContent = config.cnpj ? `CNPJ: ${config.cnpj}` : ''; });
-document.querySelectorAll('[data-business-address]').forEach(el => { el.textContent = config.businessAddress || ''; el.hidden = !config.businessAddress; });
+document.querySelectorAll('[data-business-address]').forEach(el => { el.textContent = config.businessAddress ? `Endereço cadastral: ${config.businessAddress}. Sem atendimento presencial.` : ''; el.hidden = !config.businessAddress; });

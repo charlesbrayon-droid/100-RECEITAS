@@ -72,3 +72,13 @@ Suporte e responsável continuam pendentes, sem dados fictícios. Aprovações c
 - Requisito essencial restante: endereço físico comercial do fornecedor (Decreto 7.962/2013, art. 2º, II). `businessAddress` foi incluído na trava. Vendas e aprovações comercial/legal permanecem falsas até a conclusão desses dados e textos.
 - `npm run check`, `npm run build` e `git diff --check` passaram. Testes Chromium em 360, 390, 768 e 1440 px passaram: identificação/CNPJ/suporte visíveis, links de e-mail corretos, páginas legais funcionando, seis prévias e ampliação/teclado preservados, sem overflow ou erros de console observados. Teste em memória confirmou CTA oficial com requisitos completos e bloqueio quando faltam CNPJ/endereço ou outros requisitos. Nenhuma compra real foi feita.
 - Capa, seis páginas, miniaturas e favicon comparados por hash com HEAD: idênticos. Nenhum PDF completo em public/ ou dist/.
+
+## Ativação comercial após confirmação do endereço completo
+
+- Proprietário informou Avenida Frederico Grulke e confirmou número 1220. Endereço cadastral completo incluído no rodapé, termos e privacidade; negócio explicitamente digital, sem loja física ou atendimento presencial. Nenhum bairro ou complemento foi inventado.
+- Requisitos de configuração atendidos. Vendas e aprovações comercial/legal ativadas após revisão dos textos; entrega cadastrada confirmada pelo proprietário. Não houve pagamento ou entrega real testada pelo agente.
+- `npm run check`, `npm run build`, verificações sintáticas e `git diff --check` passaram.
+- Chromium em 360, 390, 768 e 1440 px: dois CTAs ativos com URL oficial, rótulo correto, preço R$ 19,90 e garantia de 7 dias; nenhuma mensagem visível de pré-lançamento ou indisponibilidade; endereço e ausência de atendimento presencial visíveis. Galeria, setas, Escape, foco, páginas legais e responsividade passaram; nenhum erro de console observado.
+- Cliques nos dois CTAs foram interceptados exclusivamente no teste local e chegaram à URL oficial esperada; não constituem teste de checkout/pagamento na Hotmart. Conferência de produto e preço na Hotmart já havia sido realizada pelo proprietário.
+- Sem JavaScript: links de compra, preço e capa oficial presentes no HTML do build; ausência de mensagens de pré-lançamento. Galeria interativa continua dependendo de JavaScript.
+- Imagens aprovadas preservadas. Nenhum PDF completo em public/ ou dist/. Meta Pixel permanece inativo.
