@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 const html=await readFile('public/index.html','utf8');
 assert(!/href=["']#["']/.test(html),'Link vazio');
 for(const id of [...html.matchAll(/href="#([^"]+)"/g)].map(m=>m[1]))assert(html.includes(`id="${id}"`),'Âncora inexistente: '+id);
-for(const file of ['public/privacidade/index.html','public/termos/index.html','public/assets/favicon.svg','public/config.js','public/app.js','public/styles.css'])await readFile(file);
+for(const file of ['public/privacidade/index.html','public/termos/index.html','public/assets/favicon.svg','public/config.js','public/app.js','public/styles.css','public/tracking.js'])await readFile(file);
 async function inspect(dir){for(const entry of await readdir(dir,{withFileTypes:true})){if(entry.isDirectory())await inspect(`${dir}/${entry.name}`);else assert(!/\.(pdf|psd|ai|indd)$/i.test(entry.name),'Arquivo pago/editável público');}}await inspect('public');
 assert(html.includes('lang="pt-BR"'));assert(html.includes('id="lightbox"'));console.log('Verificações estruturais passaram: âncoras, arquivos, páginas legais e ausência de PDFs/editáveis públicos.');
 

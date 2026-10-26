@@ -110,9 +110,6 @@ if (config.previews.length && $('#preview-grid')) {
  });
  dialog.querySelector('.lightbox-navigation').hidden = config.previews.length < 2;
 }
-// Meta Pixel permanece inativo. Nenhum script externo, cookie ou evento é criado.
-// A ativação futura exige política aprovada, consentimento revogável e testes de
-// PageView/clique de saída sem duplicação. Purchase depende da Hotmart.
 document.querySelectorAll('[data-responsible]').forEach(el => { el.textContent = config.responsible || ''; });
 document.querySelectorAll('[data-cnpj]').forEach(el => { el.textContent = config.cnpj ? `CNPJ: ${config.cnpj}` : ''; });
 document.querySelectorAll('[data-business-address]').forEach(el => { el.textContent = config.businessAddress ? `Endereço cadastral: ${config.businessAddress}. Sem atendimento presencial.` : ''; el.hidden = !config.businessAddress; });

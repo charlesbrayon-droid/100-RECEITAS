@@ -8,7 +8,7 @@ if(config.salesEnabled && missing.length)throw new Error('Vendas bloqueadas. Con
 if(config.supportEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.supportEmail))throw new Error('E-mail de suporte inválido.');
 if(config.canonicalUrl && new URL(config.canonicalUrl).protocol!=='https:')throw new Error('Domínio final deve usar HTTPS.');
 for(const asset of [config.cover,...config.previews.flatMap(p=>[p.src,p.fullSrc])].filter(Boolean)){if(!asset.startsWith('/assets/')||asset.includes('..')||!/\.(webp|png|jpe?g|avif)$/i.test(asset))throw new Error('Use apenas imagens autorizadas em /assets/');await access('public'+asset);}
-if(config.metaPixel.id)throw new Error('Rastreamento requer implementação e validação do consentimento antes da ativação.');
+if(config.metaPixel.id && (!/^\d{5,25}$/.test(config.metaPixel.id) || config.metaPixel.consentPolicyApproved !== true))throw new Error('Pixel exige ID numérico e política/consentimento configurados.');
 await rm('dist',{recursive:true,force:true});await cp('public','dist',{recursive:true});
 // Deixa os CTAs e o preço disponíveis também sem JavaScript no build comercial.
 const escapeHtml = value => String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');

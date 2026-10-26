@@ -65,7 +65,29 @@ Título, descrição, favicon, idioma e metadados Open Graph/Twitter estão pres
 
 ## Meta Pixel
 
-Inativo, sem cookies de marketing, eventos ou scripts externos. O campo `metaPixel` apenas reserva a configuração futura. Informar um ID bloqueia o build até implementar e testar política, consentimento revogável, CSP compatível, PageView único e clique de saída único. `Purchase` depende da confirmação da Hotmart e nunca deve ser disparado no clique.
+ID público configurado: `2173554340182566`, informado pelo proprietário como o mesmo conjunto de dados da Hotmart. Não há token da API de Conversões no código e não foi implementada integração CAPI.
+
+`public/tracking.js` carrega o bootstrap oficial somente após consentimento explícito de marketing. Há opções equivalentes de aceitar/recusar, sem impedir a compra. Preferência local versionada por até 180 dias e revisão/revogação disponível no rodapé em todas as páginas. A política de privacidade descreve finalidade, eventos, cookies e compartilhamento com a Meta. Não há pixel de imagem em `noscript`, para não contornar o consentimento.
+
+Eventos: `PageView` uma vez por documento após consentimento; `InitiateCheckout` no clique/teclado dos links oficiais, com valor 19.90 BRL e nome do produto. O envio usa `trackSingle` para este Pixel. Inicialização e listener únicos, configuração automática desativada e proteção de 1 segundo para cliques duplicados. A navegação não é impedida nem atrasada. Nenhum evento `Purchase` é disparado pelo site; a integração Hotmart é responsável pela confirmação de compra.
+
+A revogação chama `consent/revoke`, remove os cookies `_fbp`/`_fbc` acessíveis neste domínio e recarrega para encerrar o SDK. Dados anteriormente enviados não são apagados por isso. Se o navegador bloquear armazenamento, a preferência vale somente nesta página. Se bloquear o SDK, o checkout continua funcionando; eventos de marketing não são garantidos em navegadores com bloqueadores.
+
+A CSP autoriza apenas os destinos Meta necessários ao SDK e aos eventos: `connect.facebook.net` e `www.facebook.com`, mantendo as demais restrições. Nenhuma correspondência avançada automática ou informação de suporte/fornecedor é passada como parâmetro de evento.
+
+### Testes reproduzíveis
+
+```sh
+npm ci
+# Se necessário, instale o navegador para os testes:
+npx playwright install chromium
+npm run check
+npm run test:tracking
+```
+
+Playwright é uma dependência apenas de desenvolvimento. O teste usa Chromium instalado no sistema quando disponível; também aceita `CHROMIUM_PATH`. Um servidor temporário local serve o build com a CSP real. O SDK Meta e o destino de checkout são substituídos por fixtures locais para verificar as chamadas e a navegação sem poluir dados de produção ou realizar pagamentos.
+
+A consulta ao SDK real foi bloqueada pelo proxy do ambiente (CONNECT 403). Os testes não confirmam recebimento no Gerenciador de Eventos da Meta, associação da Hotmart, métricas, atribuição nem eventos de compra. Essas verificações exigem o ambiente real e o Gerenciador de Eventos do proprietário.
 
 ## Pendências sem bloquear o pré-lançamento
 

@@ -89,5 +89,5 @@ export const config = {
     }
 ],
   legalApproved: true,
-  metaPixel: { id: '', consentPolicyApproved: false } // Inativo: ativação requer implementação e validação do consentimento.
+  metaPixel: { id: '2173554340182566', consentPolicyApproved: true } // SDK e eventos somente após consentimento de marketing.
 };
