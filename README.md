@@ -76,3 +76,27 @@ Capa e prévias reais; suporte, responsável, entrega/acesso, garantia/reembolso
 Preço inicial informado pela marca: R$ 19,90. Texto central dos botões: `purchaseLabel`, com “QUERO MINHAS 100 RECEITAS”. O preço é exibido na apresentação e na oferta, inclusive no pré-lançamento. Os dois botões ficam desabilitados até os requisitos de `sales.js` serem confirmados; quando ativados, ambos recebem exclusivamente `config.checkoutUrl`.
 
 A tentativa de consulta a `pay.hotmart.com` foi bloqueada pelo proxy do ambiente com CONNECT 403, antes de alcançar o checkout. Não foi possível confirmar produto, preço, entrega, suporte ou reembolso no checkout. O domínio necessário foi acrescentado ao rascunho de rede do ambiente, mas salvar o rascunho não aplica a mudança ao runtime. As imagens mencionadas como anexadas não estavam disponíveis ao agente; a apresentação editorial existente foi preservada. Nenhum arquivo pago foi publicado.
+
+## Material oficial — próxima revisão
+
+O proprietário confirmou manualmente que o checkout oficial apresenta o produto correto por R$ 19,90. Isso não equivale a uma conferência direta realizada pelo agente. Entrega, suporte, responsável e reembolso continuam pendentes; vendas permanecem desabilitadas.
+
+O arquivo `100_Marmitas_Edicao_Completa.pdf` foi enviado, mas sua transferência foi recusada por exceder 32 MiB. Seu conteúdo não foi analisado. É necessário fornecer uma versão de até 32 MiB ou partes menores com todas as páginas para selecionar exatamente seis receitas e extrair a capa oficial. Não inserir o PDF no repositório nem em `public/`.
+
+A galeria agora oferece anterior/próxima, setas do teclado, contador, Escape e retorno de foco. Suporta `src` para miniatura leve e `fullSrc` para imagem nítida carregada apenas ao ampliar. Não há páginas fictícias no site. As alterações desta revisão aguardam aprovação antes de commit ou push.
+
+## Partes recebidas e galeria real (revisão ainda sem commit)
+
+Foram recebidos e analisados os módulos 01 (193 páginas, receitas 001–025), 02 (164 páginas, receitas 026–045) e 05 (93 páginas, receitas 081–090): 450 páginas e 55 receitas. Faltam os módulos 03, 04 e 06; não houve análise do eBook completo.
+
+A capa foi extraída da página 1 do módulo 01, sem recortes ou alteração editorial. A seleção provisória inclui exatamente seis páginas de apresentação de receitas, em ordem de origem. As páginas de ingredientes e preparo não integram a amostra. Consulte `SELECAO_PREVIAS.md` para rastreabilidade e justificativas.
+
+Somente a capa e seis páginas derivadas estão em `public/assets/ebook/` (miniaturas e versões ampliadas das mesmas páginas). Os PDFs originais ficam fora do checkout em `/workspace/attachments/` e não devem ser adicionados ao Git. Contatos de análise de outras páginas estão apenas em `/workspace/scratch/`, fora da pasta pública e do repositório. Imagens do material são identificadas como ilustrações geradas por IA. Não há fotografias de receitas testadas anunciadas.
+
+A galeria oferece contador, anterior/próxima, setas do teclado, ampliação de detalhes com rolagem, Escape e retorno de foco. As versões maiores só carregam ao abrir a prévia. A publicação/commit desta revisão depende da aprovação do usuário. Vendas permanecem desabilitadas.
+
+## Confirmações comerciais e visuais atuais
+
+O proprietário aprovou a capa e as seis páginas escolhidas e confirmou produto, preço de R$ 19,90, checkout oficial e garantia de reembolso de 7 dias configurada na Hotmart. A garantia está na oferta, no FAQ e nos termos, sem inventar um procedimento de solicitação ou outras condições.
+
+Continuam faltando: e-mail de suporte, identificação pública do responsável, confirmação de como ocorre a entrega/acesso e por quanto tempo o conteúdo fica disponível. Com essas informações, atualizar os textos legais para a operação real e confirmar as aprovações comercial/legal antes de habilitar `salesEnabled`. A falta dos outros módulos não impede o uso das seis páginas já aprovadas; a análise do eBook inteiro continua não realizada. Domínio próprio e rastreamento são opcionais.

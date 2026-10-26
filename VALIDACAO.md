@@ -25,3 +25,21 @@ Faltam capa e prévias reais, dados comerciais, domínio final e revisão legal 
 - Build atualizado servido localmente e retestado em Chromium a 360, 390, 768 e 1440 px: preço presente duas vezes, dois botões desabilitados com o rótulo correto, sem overflow ou erros de console observados; FAQ, teclado e páginas legais passaram.
 - Testes de interface com fixtures confirmaram que os dois CTAs recebem o mesmo checkout somente com os requisitos completos; ausência de entrega, suporte, reembolso, responsável ou aprovações mantém os botões desabilitados. Nenhuma navegação externa nem pagamento foi efetuado nesses testes.
 - Capturas desta atualização em `/workspace/scratch/alquimia-oferta/`.
+
+## Capa oficial e seis páginas reais — aguardando aprovação
+
+- Recebidos módulos 01, 02 e 05: 450 páginas e 55 receitas. Faltam módulos 03, 04 e 06; análise do eBook completo permanece pendente.
+- Capa extraída integralmente da página 1 do módulo 01; nenhuma recriação, corte ou alteração de textos. Seleção provisória e rastreabilidade em `SELECAO_PREVIAS.md`.
+- Seis páginas reais selecionadas: receitas 002, 028, 039, 082, 084 e 087, nesta ordem. A amostra inclui páginas de apresentação, não fichas completas; essa limitação e a origem das ilustrações por IA estão visíveis na página.
+- Capa 900 × 1500 px; seis miniaturas 480 × 800 px; versões ampliadas 1440 × 2400 px. Capa + miniaturas totalizam 484.488 bytes; versões maiores carregam somente ao ampliar.
+- Build e verificações estruturais passaram. Chromium em 360, 390, 768 e 1440 px: seis miniaturas e seis ampliações carregaram, capa preservou proporção, navegação por botões e setas funcionou, ciclo entre primeira/última página funcionou, zoom/rolagem interna funcionou, Escape fechou e devolveu o foco. Sem rolagem horizontal ou erros de console observados. Páginas legais acessíveis e compra desabilitada.
+- Nenhum PDF está em `public/` ou no conjunto de arquivos para Git. Fontes originais em `/workspace/attachments/`, fora do checkout. Contatos de outras páginas apenas em `/workspace/scratch/`.
+- Capturas reais em `/workspace/scratch/alquimia-galeria/`. Sem commit, push ou publicação nesta revisão; o commit anterior permanece inalterado.
+
+## Aprovação da amostra e garantia confirmada
+
+O proprietário aprovou oficialmente a capa e as seis páginas e confirmou a garantia de reembolso de 7 dias configurada na Hotmart. A informação foi incluída na configuração central, na oferta, no FAQ e nos termos, sem inventar condições adicionais ou procedimento de solicitação.
+
+Build e verificações passaram. Chromium a 360, 390, 768 e 1440 px confirmou a garantia na oferta/FAQ/termos, ausência de overflow, seis prévias preservadas, botões desabilitados e nenhum erro de console observado. Todos os arquivos anteriormente versionados continuam presentes; nenhum PDF foi incluído na pasta pública.
+
+Continuam pendentes e-mail de suporte, identificação pública do responsável, forma de entrega e condições/prazo de acesso. Os textos legais precisam refletir esses dados antes da aprovação comercial/legal e da ativação de vendas. Domínio próprio não é requisito para utilizar o endereço HTTPS da Netlify.
