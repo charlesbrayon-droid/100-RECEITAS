@@ -3,7 +3,7 @@ export const config = {
   commercialApproved: true,
   checkoutUrl: 'https://pay.hotmart.com/Q108196211Y',
   price: 'R$ 19,90',
-  purchaseLabel: 'QUERO MINHAS 100 RECEITAS',
+  purchaseLabel: 'QUERO MINHA CARTILHA POR R$ 19,90',
   supportEmail: 'charles.brayon@icloud.com',
   responsible: '69.295.622 CHARLES BRAYON AUGUSTO SCHOENROCK',
   cnpj: '69.295.622/0001-90',
@@ -23,7 +23,7 @@ export const config = {
         "category": "Frango",
         "src": "/assets/ebook/receita-002-miniatura.webp",
         "fullSrc": "/assets/ebook/receita-002-pagina.webp",
-        "alt": "Receita 002 — Coxa assada com limão, batatas e couve refogada. Página real de apresentação do eBook; ilustração gerada por IA.",
+        "alt": "Receita 002 — Coxa assada com limão, batatas e couve refogada. Página real de apresentação da cartilha culinária digital; ilustração gerada por IA.",
         "width": 480,
         "height": 800
     },
@@ -35,7 +35,7 @@ export const config = {
         "category": "Carnes bovinas e suínas",
         "src": "/assets/ebook/receita-028-miniatura.webp",
         "fullSrc": "/assets/ebook/receita-028-pagina.webp",
-        "alt": "Receita 028 — Almôndegas bovinas ao sugo com purê de mandioca. Página real de apresentação do eBook; ilustração gerada por IA.",
+        "alt": "Receita 028 — Almôndegas bovinas ao sugo com purê de mandioca. Página real de apresentação da cartilha culinária digital; ilustração gerada por IA.",
         "width": 480,
         "height": 800
     },
@@ -47,7 +47,7 @@ export const config = {
         "category": "Carnes bovinas e suínas",
         "src": "/assets/ebook/receita-039-miniatura.webp",
         "fullSrc": "/assets/ebook/receita-039-pagina.webp",
-        "alt": "Receita 039 — Lombo suíno com molho de laranja, arroz e cenoura. Página real de apresentação do eBook; ilustração gerada por IA.",
+        "alt": "Receita 039 — Lombo suíno com molho de laranja, arroz e cenoura. Página real de apresentação da cartilha culinária digital; ilustração gerada por IA.",
         "width": 480,
         "height": 800
     },
@@ -59,7 +59,7 @@ export const config = {
         "category": "Leves e equilibradas",
         "src": "/assets/ebook/receita-082-miniatura.webp",
         "fullSrc": "/assets/ebook/receita-082-pagina.webp",
-        "alt": "Receita 082 — Tilápia assada com batata-doce e vagem. Página real de apresentação do eBook; ilustração gerada por IA.",
+        "alt": "Receita 082 — Tilápia assada com batata-doce e vagem. Página real de apresentação da cartilha culinária digital; ilustração gerada por IA.",
         "width": 480,
         "height": 800
     },
@@ -71,7 +71,7 @@ export const config = {
         "category": "Leves e equilibradas",
         "src": "/assets/ebook/receita-084-miniatura.webp",
         "fullSrc": "/assets/ebook/receita-084-pagina.webp",
-        "alt": "Receita 084 — Lentilha com arroz integral, beterraba e molho de iogurte separado. Página real de apresentação do eBook; ilustração gerada por IA.",
+        "alt": "Receita 084 — Lentilha com arroz integral, beterraba e molho de iogurte separado. Página real de apresentação da cartilha culinária digital; ilustração gerada por IA.",
         "width": 480,
         "height": 800
     },
@@ -83,7 +83,7 @@ export const config = {
         "category": "Leves e equilibradas",
         "src": "/assets/ebook/receita-087-miniatura.webp",
         "fullSrc": "/assets/ebook/receita-087-pagina.webp",
-        "alt": "Receita 087 — Omelete de ervas com arroz integral e abóbora. Página real de apresentação do eBook; ilustração gerada por IA.",
+        "alt": "Receita 087 — Omelete de ervas com arroz integral e abóbora. Página real de apresentação da cartilha culinária digital; ilustração gerada por IA.",
         "width": 480,
         "height": 800
     }

@@ -16,16 +16,16 @@ if(canSell(config)) {
  let html = await readFile('dist/index.html','utf8');
  html = html.replace(/<button\b([^>]*\bdata-purchase-control\b[^>]*)>[\s\S]*?<\/button>/g, (_,attrs) => {
   attrs=attrs.replace(/\s+disabled\b/g,'').replace(/\s+type="button"/g,'');
-  return `<a${attrs} data-checkout="true" href="${escapeHtml(config.checkoutUrl)}">${escapeHtml(config.purchaseLabel)}</a>`;
+  return `<a${attrs} data-checkout="true" href="${escapeHtml(config.checkoutUrl)}">${escapeHtml(attrs.match(/\bdata-purchase-label="([^"]*)"/)?.[1] || config.purchaseLabel)}</a>`;
  });
- html=html.replace(/(<p\b[^>]*\bdata-offer-price\b[^>]*>)[\s\S]*?(<\/p>)/g,(_,start,end)=>start+escapeHtml(config.price)+end);
+ html=html.replace(/<(p|span)\b([^>]*\bdata-offer-price\b[^>]*)>[\s\S]*?<\/\1>/g,(_,tag,attrs)=>`<${tag}${attrs}>${escapeHtml(config.price)}</${tag}>`);
  html=html.replace(/<span class="launch-label">[\s\S]*?<\/span>/g,'');
- html=html.replace(/(<p id="hero-status" class="fine">)[\s\S]*?(<\/p>)/,(_,start,end)=>start+'Compra no checkout da Hotmart.'+end);
+ html=html.replace(/(<p id="hero-status" class="fine">)[\s\S]*?(<\/p>)/,(_,start,end)=>start+'Produto digital em PDF • Acesso após a confirmação do pagamento'+end);
  html=html.replace(/<p class="pending" id="purchase-status">[\s\S]*?<\/p>/,'<p class="fine" id="purchase-status">Compra no checkout da Hotmart.</p>');
  if(config.cover) {
   const start=html.indexOf('<div id="cover-slot"');
   const end=html.indexOf('<span class="stage-note">',start);
-  if(start>=0 && end>start) html=html.slice(0,start)+`<div class="book-mockup"><img class="real-cover" src="${escapeHtml(config.cover)}" width="900" height="1500" fetchpriority="high" alt="Capa oficial do eBook 100 Marmitas Econômicas e Práticas. Ilustrações geradas por IA."></div>`+html.slice(end);
+  if(start>=0 && end>start) html=html.slice(0,start)+`<div class="book-mockup"><img class="real-cover" src="${escapeHtml(config.cover)}" width="900" height="1500" fetchpriority="high" alt="Capa oficial da cartilha culinária digital 100 Marmitas Econômicas e Práticas. Ilustrações geradas por IA."></div>`+html.slice(end);
  }
  await writeFile('dist/index.html',html);
 }

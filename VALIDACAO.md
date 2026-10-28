@@ -93,3 +93,25 @@ Suporte e responsável continuam pendentes, sem dados fictícios. Aprovações c
 - npm run check, npm run build, sintaxe e git diff --check passaram. npm run test:tracking passou a 360, 390, 768 e 1440 px: ausência de requests/eventos antes de consentimento, recusa e persistência, aceite, SDK/init/PageView únicos, importação duplicada do módulo, cliques de compra e teclado, debounce, revogação e remoção de cookies, expiração/versionamento, navegação para privacidade e ambos os CTAs preservados.
 - O SDK e o destino do checkout foram substituídos por fixtures durante os testes. As chamadas e parâmetros de PageView/InitiateCheckout foram efetivamente verificados, sem gerar eventos artificiais de produção, pagamentos ou entregas. Consulta ao SDK real bloqueada pelo proxy com CONNECT 403. Recebimento no Gerenciador de Eventos, atribuição, deduplicação com integrações externas e Purchase da Hotmart não foram verificados.
 - Capa, seis páginas e miniaturas comparadas por hash com HEAD: preservadas. PDF completo ausente de public/ e dist/. Varredura não encontrou padrões conhecidos de tokens privados nos arquivos públicos.
+
+## Oferta revisada — 28/10/2026
+
+- Título e chamada baseados no conteúdo real; capa e seis prévias preservadas por comparação de hash. Nova seção com capa inteira, detalhes culinários vetoriais, itens incluídos e preço destacado.
+- R$ 19,90 mantido como valor central, exibido com pagamento único. CTA solicitado em três posições (terceiro apenas no celular), mesma URL oficial. Não há comprovação de preço anterior de R$ 250,00 ou prazo real de oferta no projeto/histórico pesquisado; nenhum desconto calculado ou cronômetro foi inserido.
+- npm run check, npm run build e git diff --check passaram. npm run test:tracking passou após adaptar a suíte para a terceira CTA móvel, sem alterar a lógica do Pixel ou consentimento.
+- scripts/test-offer.mjs passou em 320, 360, 390, 768 e 1440 px: sem overflow ou erros de console observados; botões sem cortes, preço sem cortes, galeria e FAQ funcionais, preço consistente após interações e 24h simuladas. Barra fixa oculta com consentimento/galeria abertos; rodapé permanece acessível acima da barra ao fim da página. Dois links visíveis no desktop, três no celular. Todos os destinos foram interceptados localmente e verificados, sem transação Hotmart.
+- HTML comercial sem JavaScript preserva os três links e o preço correto. Capa e miniaturas originais sem alteração; nenhum PDF completo público.
+- Consulta direta à Hotmart bloqueada pelo proxy (CONNECT 403). Isso não comprova falha do checkout; não foram revalidados pagamento, entrega ou preço interno da plataforma nesta revisão.
+- Capturas reais em /workspace/scratch/alquimia-oferta-2026-10-28/. Nas capturas isoladas da seção, a barra fixa foi ocultada somente durante a captura para não atravessar a imagem longa; as capturas de tela inicial mostram a barra real.
+- Alterações locais para avaliação, sem commit/push/deploy desta revisão.
+
+## Reposicionamento premium como cartilha culinária digital
+
+- Denominação comercial, primeira dobra, seção de valor, apresentação editorial, oferta, FAQ, metadados e alternativas de imagem atualizados. O nome oficial do checkout não foi modificado e é explicitado nos termos para evitar divergência ao consumidor.
+- Varredura em HTML/JS públicos e no gerador de build não encontrou referências comerciais remanescentes a eBook; ocorrências em caminhos técnicos /assets/ebook/ foram preservadas intencionalmente.
+- Preço central R$ 19,90, pagamento único, garantia de 7 dias, checkout, fornecedor e dados de entrega preservados. CTA uniforme: QUERO MINHA CARTILHA POR R$ 19,90.
+- Build e check passaram; script de oferta passou em 320, 360, 390, 768 e 1440 px. Verificados texto comercial, preço após interações e 24h simuladas, três destinos corretos, galeria com seis imagens decodificadas, preço/CTAs sem cortes, barra fixa e rodapé acessíveis, consentimento, ausência de overflow e de erros de console observados, e HTML comercial sem JavaScript.
+- Teste de Pixel em 360, 390, 768 e 1440 px passou com SDK simulado: ausência de eventos antes de consentimento, aceitação, recusa, revogação, persistência, eventos únicos e links preservados. Nenhum evento artificial foi enviado à Meta; não houve teste de pagamento ou entrega.
+- Ajuste final de quebra tipográfica conferido em 320, 390, 768 e 1440 px. Capturas em /workspace/scratch/alquimia-cartilha-premium-2026-10-28/.
+- Capa e seis páginas comparadas por hash: imagens originais intactas. public/tracking.js idêntico ao HEAD: lógica de eventos/consentimento preservada. Nenhum PDF completo na pasta pública.
+- Revisão não publicada e sem commit/push, conforme instrução expressa do proprietário. A pendência antes da publicação é a aprovação da apresentação visual; não foram identificadas falhas técnicas não resolvidas nos testes executados.

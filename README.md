@@ -158,3 +158,32 @@ Endereço cadastral confirmado pelo proprietário: Avenida Frederico Grulke, 122
 Com razão social, CNPJ, e-mail de suporte, endereço, preço, garantia, checkout e entrega cadastrada confirmados pelo proprietário, a revisão dos textos foi concluída e as flags `salesEnabled`, `commercialApproved`, `legalApproved` e `deliveryConfirmed` estão verdadeiras. Essas flags refletem as confirmações do proprietário e a revisão da implementação; não representam certificação jurídica independente nem teste de compra/entrega pelo agente.
 
 O build comercial gera os links de compra, preço e capa oficial também no HTML estático, sem depender de JavaScript, e remove as mensagens de pré-lançamento. A galeria continua usando JavaScript para interação. O modo de pré-lançamento e as travas continuam disponíveis caso a configuração seja desativada ou fique incompleta.
+
+## Revisão da oferta — 28/10/2026
+
+Título principal e oferta: “100 receitas para renovar seu cardápio”. Preço central preservado em `config.price`: R$ 19,90, com indicação de pagamento único. O texto dos CTAs está em `config.purchaseLabel`. Há dois botões na página e uma versão fixa adicional apenas no celular, todos com o checkout original. A barra reserva altura real no fim da página e se oculta quando a galeria ou o consentimento estão abertos.
+
+Não foi encontrada evidência de preço anterior de R$ 250,00, nem condição comercial com data de término. Por isso não há preço riscado, economia calculada ou cronômetro. O convite editorial é “Seu próximo prato favorito pode estar aqui. Comece hoje!”. Nenhuma interação modifica o preço. Imagens, conteúdo do produto, garantia, dados do fornecedor, checkout e consentimento foram preservados.
+
+Teste visual e de preço (Chromium/Playwright, após o build):
+
+```sh
+npm run build
+python3 -m http.server 8091 --directory dist
+# Em outro terminal:
+node scripts/test-offer.mjs
+```
+
+O teste aceita `OFFER_TEST_URL`, `CHROMIUM_PATH` e `ARTIFACT_DIR`. Usa um destino de checkout interceptado para testar navegação sem compra real. Testa 320, 360, 390, 768 e 1440 px, preço após interações/24h simuladas, galeria, FAQ, consentimento, barra fixa, rodapé acessível e HTML sem JavaScript. Capturas desta revisão: `/workspace/scratch/alquimia-oferta-2026-10-28/`.
+
+A consulta direta ao checkout foi bloqueada pelo proxy (CONNECT 403); a navegação para a URL oficial foi verificada em teste interceptado, sem revalidar o preço dentro da Hotmart ou realizar pagamento. Esta revisão foi preparada localmente para avaliação; não houve commit, push ou deploy desta alteração visual.
+
+## Reposicionamento editorial — revisão local para aprovação
+
+Apresentação comercial principal: “Cartilha Culinária — 100 Receitas para Transformar suas Refeições”, da Alquimia do Sabor. O nome oficial no checkout e o nome interno dos eventos continuam “100 Receitas — Alquimia do Sabor”. Não houve alteração na Hotmart, no ID do Pixel, no domínio, no roteamento ou no conteúdo dos PDFs.
+
+A primeira dobra apresenta “100 Receitas. Novas Ideias. Mais Sabor à Sua Mesa.” e o CTA “QUERO MINHA CARTILHA POR R$ 19,90”. Foram atualizados textos, metadados, alternativas de imagem e a legenda dinâmica da galeria para a terminologia de cartilha culinária digital. Caminhos técnicos como /assets/ebook/ foram mantidos.
+
+As seções de valor e amostra usam “Muito mais do que uma lista de receitas.” e “Conheça sua nova cartilha culinária.”. A oferta mantém o preço único, a garantia aprovada e o checkout original. Nenhuma fotografia foi inventada; as imagens existentes seguem identificadas como ilustrações geradas por IA.
+
+Prévia local: /workspace/scratch/alquimia-cartilha-premium-2026-10-28/. Testes de oferta, galeria, preço, links e consentimento preservados. Esta revisão e a revisão anterior da oferta permanecem locais, sem commit, push ou publicação, aguardando aprovação do proprietário.

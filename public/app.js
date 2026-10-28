@@ -9,7 +9,7 @@ document.querySelectorAll('[data-offer-price]').forEach(el => { el.textContent =
 document.querySelectorAll('[data-refund-description]').forEach(el => { el.textContent = config.refundDescription || ''; el.hidden = !config.refundDescription; });
 const salesReady = canSell(config);
 document.querySelectorAll('[data-purchase-control]').forEach(control => {
- control.textContent = config.purchaseLabel || 'QUERO MINHAS 100 RECEITAS';
+ control.textContent = control.dataset.purchaseLabel || config.purchaseLabel || 'QUERO MINHAS 100 RECEITAS';
  if (!salesReady) return;
  if (control instanceof HTMLAnchorElement) { control.href = config.checkoutUrl; control.dataset.checkout = 'true'; return; }
  const link = document.createElement('a');
@@ -21,7 +21,7 @@ document.querySelectorAll('[data-purchase-control]').forEach(control => {
 });
 if (salesReady) {
  const heroStatus = $('#hero-status');
- if (heroStatus) heroStatus.textContent = 'Compra no checkout da Hotmart.';
+ if (heroStatus) heroStatus.textContent = 'Produto digital em PDF • Acesso após a confirmação do pagamento';
  const status = $('#purchase-status');
  if (status) { status.className = 'fine'; status.textContent = 'Compra no checkout da Hotmart.'; }
  const label = $('.launch-label');
@@ -32,7 +32,7 @@ if (config.cover && $('#cover-slot')) {
  frame.className = 'book-mockup';
  const img = document.createElement('img');
  img.src = config.cover;
- img.alt = 'Capa oficial do eBook 100 Marmitas Econômicas e Práticas. Ilustrações geradas por IA.';
+ img.alt = 'Capa oficial da cartilha culinária digital 100 Marmitas Econômicas e Práticas. Ilustrações geradas por IA.';
  img.className = 'real-cover';
  img.width = 900; img.height = 1500;
  img.fetchPriority = 'high';
@@ -54,7 +54,7 @@ function showPreview(index) {
  const img = dialog.querySelector('img');
  img.src = preview.fullSrc || preview.src;
  img.alt = preview.alt;
- $('#lightbox-caption').textContent = preview.title ? `${preview.title} — página real ${preview.printedPage} do eBook. Ilustração gerada por IA.` : preview.alt;
+ $('#lightbox-caption').textContent = preview.title ? `${preview.title} — página real ${preview.printedPage} da cartilha culinária digital. Ilustração gerada por IA.` : preview.alt;
  setPreviewZoom(false);
  $('#lightbox-count').textContent = `${previewIndex + 1} de ${config.previews.length}`;
  dialog.querySelector('.lightbox-image').scrollTop = 0;
@@ -113,3 +113,11 @@ if (config.previews.length && $('#preview-grid')) {
 document.querySelectorAll('[data-responsible]').forEach(el => { el.textContent = config.responsible || ''; });
 document.querySelectorAll('[data-cnpj]').forEach(el => { el.textContent = config.cnpj ? `CNPJ: ${config.cnpj}` : ''; });
 document.querySelectorAll('[data-business-address]').forEach(el => { el.textContent = config.businessAddress ? `Endereço cadastral: ${config.businessAddress}. Sem atendimento presencial.` : ''; el.hidden = !config.businessAddress; });
+
+// Reserva a altura real da barra de compra, inclusive com fonte ampliada/safe area.
+const mobilePurchase = document.querySelector('.mobile-purchase');
+if (mobilePurchase) {
+ const syncPurchaseSpace = () => document.documentElement.style.setProperty('--mobile-purchase-height', `${Math.ceil(mobilePurchase.getBoundingClientRect().height)}px`);
+ syncPurchaseSpace();
+ if ('ResizeObserver' in window) new ResizeObserver(syncPurchaseSpace).observe(mobilePurchase);
+}

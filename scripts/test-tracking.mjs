@@ -36,9 +36,9 @@ for(const width of [360,390,768,1440]){
  const {page,calls,requests,errors}=await setup(width);
  assert.equal(requests.length,0,'Nenhuma requisição Meta antes do consentimento');assert.equal(calls.length,0);
  assert(await page.locator('.consent-panel').isVisible());assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
- assert.equal(await page.locator('[data-checkout]').count(),2);assert.equal(await page.locator('.preview-button').count(),6);
+ assert.equal(await page.locator('[data-checkout]').count(),3);assert.equal(await page.locator('.preview-button').count(),6);
  await page.getByRole('button',{name:'Recusar marketing',exact:true}).click();
- await page.locator('[data-checkout]').first().click({noWaitAfter:true});await page.waitForTimeout(100);
+ await page.locator('[data-checkout]:visible').first().click({noWaitAfter:true});await page.waitForTimeout(100);
  assert.equal(calls.length,0);assert.equal(requests.length,0);assert.equal(page.url(),origin+'/');
  await page.reload({waitUntil:'networkidle'});assert(!(await page.locator('.consent-panel').isVisible()));assert.equal(requests.length,0);
  await page.getByRole('button',{name:'Preferências de privacidade',exact:true}).click();
@@ -49,9 +49,9 @@ for(const width of [360,390,768,1440]){
  await page.evaluate(()=>import('/tracking.js?duplicate-test=1'));assert.equal(await page.locator('.consent-panel').count(),1);
  await page.getByRole('button',{name:'Preferências de privacidade',exact:true}).click();await page.getByRole('button',{name:'Aceitar marketing',exact:true}).click();
  assert.equal(calls.filter(c=>c[0]==='init').length,1);assert.equal(calls.filter(c=>c[2]==='PageView').length,1);
- await page.locator('[data-checkout]').first().click({noWaitAfter:true});await page.locator('[data-checkout]').last().click({noWaitAfter:true});await page.waitForTimeout(100);
+ await page.locator('[data-checkout]:visible').first().click({noWaitAfter:true});await page.locator('[data-checkout]:visible').last().click({noWaitAfter:true});await page.waitForTimeout(100);
  assert.equal(calls.filter(c=>c[2]==='InitiateCheckout').length,1,'Clique duplicado suprimido');
- await page.waitForTimeout(1050);await page.locator('[data-checkout]').last().focus();await page.keyboard.press('Enter');await page.waitForTimeout(100);
+ await page.waitForTimeout(1050);await page.locator('[data-checkout]:visible').last().focus();await page.keyboard.press('Enter');await page.waitForTimeout(100);
  assert.equal(calls.filter(c=>c[2]==='InitiateCheckout').length,2);
  for(const c of calls.filter(c=>c[2]==='InitiateCheckout')){assert.equal(c[1],pixel);assert.equal(c[3].value,19.9);assert.equal(c[3].currency,'BRL');}
  assert(!calls.some(c=>c.includes('Purchase')));
@@ -60,10 +60,10 @@ for(const width of [360,390,768,1440]){
  await page.getByRole('button',{name:'Preferências de privacidade',exact:true}).click();await page.getByRole('button',{name:'Recusar marketing',exact:true}).click();await page.waitForLoadState('networkidle');
  assert.equal(calls.filter(c=>c[2]==='PageView').length,pvCount);assert.equal(requests.length,scriptCount);
  assert(!(await page.evaluate(()=>document.cookie)).match(/_fbp=|_fbc=/));assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('alquimia-marketing-consent')).choice),'denied');
- for(let i=0;i<2;i++){
+ for(let i=0;i<(width<=600?3:2);i++){
   await page.goto(origin+'/',{waitUntil:'networkidle'});
   await page.evaluate(()=>window.removeEventListener('click',window.__checkoutTestBlock));
-  await page.locator('[data-checkout]').nth(i).click();await page.waitForURL(checkout);assert.equal(page.url(),checkout);
+  await page.locator('[data-checkout]:visible').nth(i).click();await page.waitForURL(checkout);assert.equal(page.url(),checkout);
  }
  assert(!errors.length,errors.join('\n'));results.push({width,status:'PASS'});await page.close();
 }
